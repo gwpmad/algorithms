@@ -1,5 +1,10 @@
-// Lomuto. Here pivot is last element: https://en.wikipedia.org/wiki/Quicksort#Lomuto_partition_scheme
+/*
+  Quicksort is at its fastest as fast as mergesort. However, it maintains greater efficiency that mergesort with different inputs, so is
+  probably preferable.
 
+  Here we use the Lomuto partition scheme, where pivot is last element: https://en.wikipedia.org/wiki/Quicksort#Lomuto_partition_scheme
+  This is not the fastest of the quicksorts but is one of the easiest to understand.
+*/
 
 // Incredibly useful explanation of Lomuto partition function, step by step: https://gisttree.com/news/understanding-lomutos-partitioning-scheme/
 const partition = (arr, lo, hi) => {
