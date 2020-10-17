@@ -2,6 +2,9 @@
   Quicksort is at its fastest as fast as mergesort. However, it maintains greater efficiency that mergesort with different inputs, so is
   probably preferable.
 
+  The algorithm features a partition step which starts with a certain pivot and then repositions it, to divide the array in
+  two for recursive sorting. There are various partition schemes - most famous are Hoare's and Lomuto's.
+
   Here we use the Lomuto partition scheme, where pivot is last element: https://en.wikipedia.org/wiki/Quicksort#Lomuto_partition_scheme
   This is not the fastest of the quicksorts but is one of the easiest to understand.
 */
@@ -12,7 +15,6 @@ const partition = (arr, lo, hi) => {
     and the elements at i through j (inclusive) are equal to or greater than the pivot */
   const pivot = arr[hi];
   let i = lo;
-  console.log('pivot', pivot)
   for (let j = lo; j < hi; j++) {
     if (arr[j] < pivot) {
       /* Swap element at i with element at j. If i and j are the same, it means every element
