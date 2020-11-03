@@ -1,0 +1,29 @@
+Todo: implement in non-pseudocode
+
+spreadsheet = [[], []]
+
+func handler (originalCoords,value, coord1, coord2) {
+  if coord1/coord2 = originalCoords {
+    cell.circular = true
+    throw Error
+  };
+  if (starts =) {
+    cellToReference = [1,2]
+    spreadsheet[coord1][coord2].input = value;
+    if (cellToReference.circular) {
+      throw Error (adjacentToCircle)
+    }
+  }
+
+
+  spreadsheet[coord1][coord2].displayValue = value
+
+  for listeners {
+    handler(originalCoords, displayValue, listenerCoord1, listenerCoord2)
+  }
+
+}
+
+
+you could use a map to store the different cells, the keys wouldn't be cell names but instead unique ids, then you'd have a lookup table
+for unique id -> cell name - this means that if column was inserted/removed you wouldn't need to change all key names

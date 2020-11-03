@@ -1,0 +1,44 @@
+func anagram (string1 string, string2 string) {
+  if (string1.length != string2.length) return false;
+  const listOfChars = string1.split('');
+  const listOfChars2 = string2.split('')
+  for let i = 0; i < listOfChars.length; i++ {
+    if (map['d'] === 2)  {
+      listOfChars2 = slice to remove letter;
+    } else {
+      return false;
+    }
+  }
+
+  if (listOfChars2.length == 0) return true;
+
+  return false
+}
+
+dog man = false
+dog god = true
+dog go = false
+dog dogg = false
+
+dgo == dgo
+
+
+{
+  d: 1,
+  o: 2,
+  g: 1
+}
+
+
+{
+  d: 1,
+  o: 1,
+  g: 2
+}
+
+----
+- Splitting to arrays and comparing each letter is n^2 complexity as it's length times length
+- Possibly best way to do it is just to sort both by alphabet and compare. Less complexity and no nested looping
+- Sorts like the alphabetical one are generally O(log n) which is good
+- Length comparison at the beginning can weed out many immediately
+- Another technique might be count numbers of each letter like the maps above, then compare those maps

@@ -69,7 +69,7 @@ visitedNodes.clear(); // empty the visitedNodes set following DFS
 const bfs = (startNode) => {
   const queue = [];
   queue.push(startNode);
-  visited.add(startNode); // get the queue going by adding an entry
+  visitedNodes.add(startNode); // get the queue going by adding an entry
 
   while (queue.length > 0) {
     // iterate through the queue
@@ -77,18 +77,19 @@ const bfs = (startNode) => {
     visit(currentNode);
 
     for (let neighbour of adjacencyList.get(currentNode)) {
-      if (!visited.has(neighbour)) {
+      if (!visitedNodes.has(neighbour)) {
         queue.push(neighbour); // push the neighbour to the queue - not until neighbour is processed will its neighbours be added
-        visited.add(neighbour); // visited has to updated along with queue, or things could be added to queue twice within the same for loop
+        visitedNodes.add(neighbour); // visited has to updated along with queue, or things could be added to queue twice within the same for loop
       }
     }
   }
 };
 
 /*
-  The above all assumes that all nodes have at least one edge and there are no isolated nodes - this would make it a 'disconnected' graph.
+  The above all assumes that all nodes have at least one edge and there are no isolated nodes, or perhaps discrete groups of nodes that don't
+  touch each other - this would make it a 'disconnected' graph.
   We can deal with the possibility of a disconnected graph by running our search function and then a for loop of the graph's nodes, in case
-  any have not been touched because they are not neighbours of any other node. Example below is DFS but could be BFS
+  any have not been touched because they are not neighbours of any node already visited. Example below is DFS but could be BFS
 */
 
 visitedNodes.clear();
@@ -96,7 +97,7 @@ const dfsDisconnected = (startNode) => {
   dfs(startNode);
 
   for (let node of adjacencyList.keys()) {
-    if (!visited.has(node)) {
+    if (!visitedNodes.has(node)) {
       dfs(node);
     }
   }
