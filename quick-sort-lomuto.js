@@ -1,6 +1,6 @@
 /*
   Quicksort is at its fastest as fast as mergesort. However, it maintains greater efficiency that mergesort with different inputs, so is
-  probably preferable.
+  probably preferable. Average performance is 𝑂(𝑛 log 𝑛) - way better than 𝑂(𝑛2) (quadratic) but worse than 𝑂(𝑛) (linear)
 
   The algorithm features a partition step which starts with a certain pivot and then repositions it, to divide the array in
   two for recursive sorting. There are various partition schemes - most famous are Hoare's and Lomuto's.
@@ -20,32 +20,32 @@ const partition = (arr, lo, hi) => {
       /* Swap element at i with element at j. If i and j are the same, it means every element
       so far has been lower than the pivot element, so we leave the element where it is (swap in place). */
       [arr[i], arr[j]] = [arr[j], arr[i]];
-      i++
+      i++;
     }
   }
-  
+
   /* 
     i has continually adjusted itself to try to mark the place where the 2nd 'half' of the array begins.
     The value at i itself and all the values after should now be greater than or equal to the pivot.
     So now we swap the value at i with the value at hi (pivot value), to put the pivot value in front of all the values lower than it,
     and behind the value at i (which could be higher than the pivot value).
   */
-  [arr[i], arr[hi]] = [arr[hi], arr[i]]
+  [arr[i], arr[hi]] = [arr[hi], arr[i]];
   return i;
 };
 
 const quickSort = (arr, lo, hi) => {
   if (lo < hi) {
-      const p = partition(arr, lo, hi);
-      /*
+    const p = partition(arr, lo, hi);
+    /*
         We've put the numbers below the pivot before it, and the numbers gte after it. So now we need to organise those two separate sets
         of numbers independently of the pivot itself. The key is that we know the pivot itself is at the right final index in the array.
       */
-      quickSort(arr, lo, p - 1);
-      quickSort(arr, p + 1, hi);
+    quickSort(arr, lo, p - 1);
+    quickSort(arr, p + 1, hi);
   }
 };
 
 const arr = [4, 3, 31, 1, 2, 25, 10, 11];
 quickSort(arr, 0, arr.length - 1);
-console.log('sorted array', arr)
+console.log("sorted array", arr);

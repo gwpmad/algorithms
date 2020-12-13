@@ -79,7 +79,7 @@ const bfs = (startNode) => {
     for (let neighbour of adjacencyList.get(currentNode)) {
       if (!visitedNodes.has(neighbour)) {
         queue.push(neighbour); // push the neighbour to the queue - not until neighbour is processed will its neighbours be added
-        visitedNodes.add(neighbour); // visited has to updated along with queue, or things could be added to queue twice within the same for loop
+        visitedNodes.add(neighbour); // visited has to be updated along with queue, or things could be added to queue twice within the same while loop
       }
     }
   }

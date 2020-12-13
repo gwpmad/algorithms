@@ -29,9 +29,9 @@
 /*
   More clarity on deleting/inserting being a 'constant' operation:
   Insertion or deletion of an element at a specific point of a list, assuming that we have indexed a pointer to the node
-  (before the one to be removed, or before the insertion point) already, is a constant-time operation (otherwise without
+  (before the one to be removed, or before the insertion point) already, is a constant-time operation (O(1), the fastest time, otherwise without
   this reference it is O(n)).
-  Whereas insertion in a dynamic array at random locations will require moving half of the elements on average, and all the
+  Whereas insertion in a dynamic array at random locations will require moving half of the elements on average (so on average it is O(n/2)), and all the
   elements in the worst case.
 */
 
