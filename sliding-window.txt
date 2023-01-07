@@ -1,0 +1,4 @@
+A sliding window problem involves a request to move a fixed-size window through a dataset and to find the part of the dataset that satisfies a certain condition.
+It can often be solved with a single pass. This involes keeping track of the values and updating them as one goes along.
+
+An example is Day 6 of Advent of Code 2022. https://github.com/gwpmad/advent-of-code-2022/blob/main/src/days/day6.rs#L44
